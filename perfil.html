@@ -59,8 +59,7 @@
 <script> 
     // Menu hambúrguer padrão let bntMenu = document.querySelector("#botaomenu");
     let caixaMenu = document.querySelector(".menu");
-    bntMenu.addEventListener("click", function() { caixaMenu.classList.toggle("visivel");
-                                                 });
+    bntMenu.addEventListener("click", function() { caixaMenu.classList.toggle("visivel"); });
     var urlParams = new URLSearchParams(window.location.search);
     var nomeParam = urlParams.get('nome'); 
     var emailParam = urlParams.get('email');
