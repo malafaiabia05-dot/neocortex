@@ -60,13 +60,13 @@
         <br>
         <p>Quer entender mais sobre o universo do alto QI? <a href="https://mensa.org.br/quem-somos#quem_somos" target="_blank">Visite o portal oficial da Mensa Brasil</a>.</p>
     
-            <!-- SEÇÃO DE ASSISTÊNCIA AO USUÁRIO -->
+            
     <br><hr><br>
     <h3>🛠️ Central de Assistência e Suporte</h3>
     <p>Encontrou algum percalço no site ou tem uma ideia? Envie uma mensagem direta para o nosso suporte:</p>
 
     <form id="form-assistencia">
-        <!-- Caixa de seleção (Select) conforme ensinado em sala (Slide de Forms) -->
+        
         <label for="tipo-ajuda">Selecione o motivo:</label><br>
         <select id="tipo-ajuda" required>
             <option value="Problema / Bug">Relatar um Problema / Bug</option>
@@ -90,25 +90,25 @@
         let menuCaixa = document.querySelector(".menu");
         botaoMenu.addEventListener("click", function() { menuCaixa.classList.toggle("visivel"); });
    
-       // PROGRAMAÇÃO DO BOTÃO DE ASSISTÊNCIA (Slide de JS, Pág. 17 e 21)
+       
     document.getElementById("form-assistencia").addEventListener("submit", function(event) {
-        // 1. Impede a página de recarregar devido ao protocolo stateless (Slide de Protocolos, Pág. 17)
+        
         event.preventDefault();
 
-        // 2. Captura os valores selecionados e digitados (Slide de JS, Pág. 21)
+        
         var motivo = document.getElementById("tipo-ajuda").value;
         var relato = document.getElementById("relato-usuario").value;
 
-        // 3. Monta o texto de envio padronizado (Método GET - Slide de Protocolos)
+       
         var textoSuporte = "Olá Suporte NeoCórtex! Gostaria de registrar um(a) [" + motivo + "]. Relato: " + relato;
         
        
         var linkSuporteZap = "https://wa.me/558196769660?text=" + encodeURIComponent(textoSuporte);
 
-        // 5. Abre o WhatsApp com a mensagem formatada
+        
         window.open(linkSuporteZap, "_blank");
         
-        // Limpa o campo de texto após o envio
+       
         document.getElementById("relato-usuario").value = "";
     });
 
