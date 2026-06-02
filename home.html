@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoCórtex - Área do Usuário</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <header>
+        <button id="botaomenu">☰ menu</button>
+        <nav> 
+           <div class="menu">
+                <a href="index.html">home</a>
+                <a href="perfil.html">perfil</a>
+                <a href="teste.html">teste seu QI</a>
+                <a href="historico.html">histórico</a>
+           </div> 
+        </nav>
+    </header>
+
+    <main>
+        <!-- TELA 1: LOGIN (Fica visível no começo) -->
+        <div id="tela-login" style="display: block;">
+            <h2>Entrar na Conta</h2>
+            <form onsubmit="return realizarLogin()">
+                <label for="email-login">Digite seu email para entrar:</label><br>
+                <input type="email" id="email-login" required placeholder="Ex: exemplo@gmail.com"><br><br>
+
+                <label for="senha-login">Digite sua senha para entrar:</label><br>
+                <input type="password" id="senha-login" required placeholder="Ex: ********"><br><br>
+
+                <button type="submit" id="botaoenter">Entrar conta</button>
+                <!-- Botão do tipo button para não recarregar a página (Slide de Forms, Pág. 13) -->
+                <button type="button" id="botaocriar" onclick="irParaCadastro()">Criar conta</button>
+            </form>
+        </div>
+
+        <!-- TELA 2: CADASTRO (Começa escondida) -->
+        <div id="tela-cadastro" style="display: none;">
+            <h2>Criar Nova Conta</h2>
+            <form onsubmit="return salvarCadastro()">
+                <label for="cad-nome">Seu Nome Completo:</label><br>
+                <input type="text" id="cad-nome" required placeholder="Ex: João Silva"><br><br>
+
+                <label for="cad-email">Seu Melhor E-mail:</label><br>
+                <input type="email" id="cad-email" required placeholder="Ex: joao@gmail.com"><br><br>
+
+                <label for="cad-senha">Crie uma Senha:</label><br>
+                <input type="password" id="cad-senha" required placeholder="Mínimo 6 dígitos"><br><br>
+
+                <label for="cad-confirma">Confirme a Senha:</label><br>
+                <input type="password" id="cad-confirma" required placeholder="Repita a senha"><br><br>
+
+                <button type="submit" id="btn-finalizar-cad">Finalizar Cadastro</button>
+            </form>
+        </div>
+
+        <!-- TELA 3: PERFIL LOGADO (Começa escondida) -->
+        <div id="tela-perfil" style="display: none; text-align: center;">
+            <h2>Painel do Usuário</h2>
+            <br>
+            <!-- Espaço da Foto de Perfil Padrão -->
+            <div id="avatar-container">
+                <img src="imagens/usuario-padrao.png" alt="Foto de Perfil" id="foto-exibida" style="width: 100px; height: 100px; border-radius: 50%;">
+                <br><br>
+                <label for="seletor-foto">Escolha um avatar padrão:</label><br>
+                <select id="seletor-foto" onchange="mudarFoto()">
+                    <option value="imagens/usuario-padrao.png">Avatar Cinza Padrão</option>
+                    <option value="imagens/avatar-cerebro.png">Avatar Cérebro Lógico</option>
+                    <option value="imagens/avatar-genio.png">Avatar Gênio</option>
+                </select>
+            </div>
+
+            <br><hr><br>
+
+            <!-- Dados Dinâmicos Preenchidos pelo JS (Slide de JS, Pág. 18) -->
+            <p><strong>Nome:</strong> <span id="perfil-nome">...</span></p>
+            <p><strong>E-mail:</strong> <span id="perfil-email">...</span></p>
+            
+            <br>
+            <h3>Seu Histórico de Avaliações</h3>
+            <table border="1" style="margin: 0 auto;">
+                <tr>
+                    <th>Último Teste Realizado</th>
+                    <th>Resultado Estimado</th>
+                </tr>
+                <tr>
+                    <td>Exame Psicométrico NeoCórtex</td>
+                    <td id="perfil-qi">Nenhum teste feito ainda</td>
+                </tr>
+            </table>
+        </div>
+    </main>
+
+    <!-- JAVASCRIPT BÁSICO (Estilo das Aulas) -->
+    <script>
+        // Variáveis globais para simular o banco de dados (Pág. 18)
+        var bancoNome = "Visitante";
+        var bancoEmail = "exemplo@gmail.com";
+        var bancoSenha = "123";
+
+        // Menu Hambúrguer padrão
+        let bntMenu = document.querySelector("#botaomenu");
+        let caixaMenu = document.querySelector(".menu");
+        bntMenu.addEventListener("click", function() { caixaMenu.classList.toggle("visivel"); });
+
+        // Função 1: Mostra a tela de cadastro e esconde o login (Slide de Layouts)
+        function irParaCadastro() {
+            document.getElementById("tela-login").style.display = "none";
+            document.getElementById("tela-cadastro").style.display = "block";
+        }
+
+        // Função 2: Salva os dados do cadastro e abre o perfil direto (Slide de JS, Pág. 21)
+        function salvarCadastro() {
+            var nome = document.getElementById("cad-nome").value;
+            var email = document.getElementById("cad-email").value;
+            var senha = document.getElementById("cad-senha").value;
+            var confirma = document.getElementById("cad-confirma").value;
+
+            // Validação simples de igualdade (Slide de JS, Pág. 25)
+            if (senha != confirma) {
+                alert("As senhas não coincidem! Tente novamente.");
+                return false;
+            }
+
+            // Salva nas variáveis globais
+            bancoNome = nome;
+            bancoEmail = email;
+            bancoSenha = senha;
+
+            alert("Cadastro realizado com sucesso! Bem-vindo(a).");
+
+            // Joga os dados direto na tela de perfil (Pág. 18)
+            document.getElementById("perfil-nome").innerHTML = bancoNome;
+            document.getElementById("perfil-email").innerHTML = bancoEmail;
+
+            // Transiciona para a tela de Perfil Logado
+            document.getElementById("tela-cadastro").style.display = "none";
+            document.getElementById("tela-perfil").style.display = "block";
+
+            return false; // Impede o recarregamento síncrono
+        }
+
+        // Função 3: Realizar Login comum baseando-se nas variáveis
+        function realizarLogin() {
+            var emailDigitado = document.getElementById("email-login").value;
+            var senhaDigitada = document.getElementById("senha-login").value;
+
+            if (emailDigitado == bancoEmail && senhaDigitada == bancoSenha) {
+                document.getElementById("perfil-nome").innerHTML = bancoNome;
+                document.getElementById("perfil-email").innerHTML = bancoEmail;
+                
+                document.getElementById("tela-login").style.display = "none";
+                document.getElementById("tela-perfil").style.display = "block";
+            } else {
+                alert("E-mail ou senha incorretos!");
+            }
+            return false;
+        }
+
+        // Função 4: Mudar a imagem de perfil com base no seletor select (Básico)
+        function mudarFoto() {
+            var linkFotoSelecionada = document.getElementById("seletor-foto").value;
+            document.getElementById("foto-exibida").src = linkFotoSelecionada;
+        }
+    </script>
+</body>
+</html>
+

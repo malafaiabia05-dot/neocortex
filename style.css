@@ -1,0 +1,239 @@
+p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+}
+
+/* Centraliza o formulário na tela e dá uma cor de fundo suave */
+body {
+    background-color: #ffffff; /* Um cinza bem claro e moderno */
+    padding: 40px;
+}
+
+/* CORREÇÃO 1: Trocamos o ponto por '#' porque o formulário no HTML usa ID */
+#meuFormulario {
+    background-color: #ffffff; /* Fundo branco para contrastar */
+    max-width: 500px;          /* Limita a largura para não ficar gigante */
+    margin: 0 auto;            /* Centraliza o cartão na página */
+    padding: 30px;             /* Dá um excelente espaço interno (Box Model) */
+    border-radius: 8px;        /* Arredonda os cantos do cartão */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Cria uma sombra suave de fundo */
+}
+
+#botaomenu {
+    margin-left: 20px;  
+    margin-right: 20px;  
+}
+
+/* Estiliza o campo de digitar o nome */
+input[type="text"] {
+    width: 100px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Transforma o seu botão em um botão moderno e chamativo */
+#btnEnviar {
+    background-color: #25d366; /* Cor verde oficial do WhatsApp */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    transition: background-color 0.3s; /* Transição suave de cor */
+}
+
+/* Efeito Hover avançado exigido pela Monique */
+#btnEnviar:hover {
+    background-color: #128c7e; /* O verde fica mais escuro ao passar o mouse */
+}
+/* ==========================================================================
+   1. CONFIGURAÇÕES GLOBAIS E FONTES (Slide de CSS 2, Págs. 3 e 4)
+   ========================================================================== */
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+    background-color: #c5c5c6; /* O cinza claro moderno que você escolheu */
+    padding: 40px;
+    margin: 0;
+    color: #333333;
+}
+
+/* Títulos com hierarquia limpa */
+h1, h2, h3, h4 {
+    color: #111111;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    border-top: 2px solid #999;
+    margin: 20px 0;
+}
+
+/* ==========================================================================
+   2. DESIGN DO CABEÇALHO E MENU HAMBÚRGUER (Slide de CSS 1 e 2, Pág. 18)
+   ========================================================================== */
+header {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    text-align: center; /* Centraliza a logo e o botão */
+}
+
+/* Tamanho padrão da Logo de acordo com o CSS (Sem achatar) */
+header img {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px auto; /* Centraliza e joga margem para baixo */
+}
+
+/* Estilo do botão de abrir o menu */
+#botaomenu {
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* A caixinha retrátil do menu que começa Oculta */
+.menu {
+    display: none; /* Começa invisível conforme a lógica do livro */
+    background-color: #b3aeae;  
+    padding: 15px;                
+    border: 1px solid #000000;       
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+/* Ativado via classList.toggle no JavaScript */
+.menu.visivel {
+    display: block; 
+}
+
+/* Espaçamento lateral dos links do menu (Box Model) */
+.menu a {
+    margin-right: 15px;
+    margin-left: 15px;
+    text-decoration: none;
+    color: #000000;
+}
+
+/* Efeito Hover nos links do menu exigido pela Monique (Slide CSS 2, Pág. 13) */
+.menu a:hover {
+    color: #007BFF; /* Muda para azul ao passar o mouse */
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   3. CARTÃO DOS FORMULÁRIOS E CONTEÚDOS (Slide de CSS 2, Pág. 22)
+   ========================================================================== */
+main {
+    background-color: #ffffff; /* Transforma o conteúdo em um cartão branco elegante */
+    max-width: 650px;          /* Largura confortável para leitura e tabelas */
+    margin: 0 auto;            /* Centraliza o cartão principal na tela */
+    padding: 30px;             /* Excelente espaço interno invisível (Padding) */
+    border-radius: 8px;        /* Arredonda os cantos da caixa */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave de fundo */
+}
+
+/* Estilização para as caixas de texto, e-mail e senha (Slide de Forms) */
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 80%;
+    max-width: 300px;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+/* Espaçamento sutil para os botões de rádio e legendas */
+input[type="radio"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+label {
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   4. DESIGN DOS BOTÕES GERAIS E HOVER (Slide de CSS 2, Pág. 13)
+   ========================================================================== */
+button, .btn-link {
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px 20px;
+    border: none;
+    margin: 5px;
+}
+
+/* O botão verde com efeito Hover avançado */
+#btnEnviar, #botaoenter, #botaocriar, #btn-finalizar-cad {
+    background-color: #25d366; /* Verde oficial do WhatsApp */
+    color: #ffffff;
+    font-size: 15px;
+    transition: background-color 0.3s; /* Transição suave de cor */
+}
+
+#btnEnviar:hover, #botaoenter:hover, #botaocriar:hover, #btn-finalizar-cad:hover {
+    background-color: #128c7e; /* O verde fica mais escuro no foco do mouse */
+}
+
+/* Botões simples de navegação (Back e Next) */
+#botaoback, #botaonext {
+    background-color: #e0e0e0;
+    color: #333333;
+}
+
+#botaoback:hover, #botaonext:hover {
+    background-color: #cccccc;
+}
+
+/* ==========================================================================
+   5. FORMATAÇÃO DAS TABELAS E LISTAS (Slide de HTML, Pág. 14)
+   ========================================================================== */
+table {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-collapse: collapse; /* Gruda as bordas duplas da tabela */
+    background-color: #ffffff;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #dddddd; /* Linha fina e elegante */
+}
+
+th {
+    background-color: #f8f9fa; /* Cabeçalho com cinza bem sutil */
+}
+
+/* Listas com respiro vertical */
+ul, ol {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}

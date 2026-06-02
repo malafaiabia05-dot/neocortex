@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>NeoCórtex - Painel do Usuário</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <header>
+         <button id="botaomenu">☰ menu</button>
+        <nav> 
+           <div class="menu">
+                <a href="index.html">home</a>
+                <a href="perfil.html">perfil</a>
+                <a href="teste.html">teste seu QI</a>
+                
+           </div> 
+        </nav>
+        
+    </header>
+
+    <main style="text-align: center; padding: 20px;">
+        <h2>Painel do Usuário</h2>
+        <br>
+        
+        <!-- Área da Foto de Perfil (Slide de Exercícios, Pág. 5) -->
+        <div>
+            <img src="imagens/usuario-padrao.jpg" alt="Foto de Perfil" id="foto-exibida" style="width: 100px; height: 100px; border-radius: 50%;">
+            <br><br>
+            <label for="seletor-foto">Escolha um avatar padrão:</label><br>
+            <select id="seletor-foto" onchange="mudarFoto()">
+                <option value="imagens/usuario-padrao.png">Avatar Cinza Padrão</option>
+                <option value="imagens/avatar-cerebro.png">Avatar Cérebro Lógico</option>
+                <option value="imagens/avatar-genio.png">Avatar Gênio</option>
+            </select>
+        </div>
+
+        <br><hr><br>
+
+        <!-- Dados do Usuário Preenchidos pelo JS (Slide de JS, Pág. 18) -->
+        <p><strong>Nome:</strong> <span id="perfil-nome">Carregando...</span></p>
+        <p><strong>E-mail:</strong> <span id="perfil-email">Carregando...</span></p>
+        
+        <br>
+        <h3>Seu Histórico de Avaliações</h3>
+        <table border="1" style="margin: 0 auto;">
+            <tr>
+                <th>Último Teste Realizado</th>
+                <th>Resultado Estimado</th>
+            </tr>
+            <tr>
+                <td>Exame Psicométrico NeoCórtex</td>
+                <td>Conclua a avaliação para registrar seu QI</td>
+            </tr>
+        </table>
+    </main>
+
+    <script>
+        // Menu hambúrguer padrão
+        let bntMenu = document.querySelector("#botaomenu");
+        let caixaMenu = document.querySelector(".menu");
+        bntMenu.addEventListener("click", function() { caixaMenu.classList.toggle("visivel"); });
+
+        // Lê os dados que vieram do cadastro (home.html)
+        var urlParams = new URLSearchParams(window.location.search);
+        var nomeParam = urlParams.get('nome');
+        var emailParam = urlParams.get('email');
+
+        if (nomeParam && emailParam) {
+            document.getElementById("perfil-nome").innerHTML = nomeParam;
+            document.getElementById("perfil-email").innerHTML = emailParam;
+        } else {
+            document.getElementById("perfil-nome").innerHTML = "Visitante";
+            document.getElementById("perfil-email").innerHTML = "não logado";
+        }
+
+    </script>
+</body>
+</html>
