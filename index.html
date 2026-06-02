@@ -84,34 +84,6 @@
     </form>
 
     </main>
-
-    <script>
-        let botaoMenu = document.querySelector("#botaomenu");
-        let menuCaixa = document.querySelector(".menu");
-        botaoMenu.addEventListener("click", function() { menuCaixa.classList.toggle("visivel"); });
-   
-       
-    document.getElementById("form-assistencia").addEventListener("submit", function(event) {
-        
-        event.preventDefault();
-
-        
-        var motivo = document.getElementById("tipo-ajuda").value;
-        var relato = document.getElementById("relato-usuario").value;
-
-       
-        var textoSuporte = "Olá Suporte NeoCórtex! Gostaria de registrar um(a) [" + motivo + "]. Relato: " + relato;
-        
-       
-        var linkSuporteZap = "https://wa.me/558196769660?text=" + encodeURIComponent(textoSuporte);
-
-        
-        window.open(linkSuporteZap, "_blank");
-        
-       
-        document.getElementById("relato-usuario").value = "";
-    });
-
-   </script>
+<script src="js/script.js"></script>
 </body>
 </html>
