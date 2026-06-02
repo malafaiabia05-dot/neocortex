@@ -56,26 +56,6 @@
             </tr>
         </table>
     </main>
-
-    <script>
-        // Menu hambúrguer padrão
-        let bntMenu = document.querySelector("#botaomenu");
-        let caixaMenu = document.querySelector(".menu");
-        bntMenu.addEventListener("click", function() { caixaMenu.classList.toggle("visivel"); });
-
-        
-        var urlParams = new URLSearchParams(window.location.search);
-        var nomeParam = urlParams.get('nome');
-        var emailParam = urlParams.get('email');
-
-        if (nomeParam && emailParam) {
-            document.getElementById("perfil-nome").innerHTML = nomeParam;
-            document.getElementById("perfil-email").innerHTML = emailParam;
-        } else {
-            document.getElementById("perfil-nome").innerHTML = "Visitante";
-            document.getElementById("perfil-email").innerHTML = "não logado";
-        }
-
-    </script>
+<script src="js/script.js"></script>
 </body>
 </html>
