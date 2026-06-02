@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Neocórtex - Teste de QI</title>
-    <!-- Vínculo do CSS externo conforme a Página 6 do slide de CSS 1 -->
+   
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
-    <!-- CABEÇALHO DO SITE (Slide de HTML, Pág. 28) -->
+    
     <header>
         <img src="imagens/logo.jpg" alt="NeoCórtex" width="150">
         <br>
@@ -24,7 +24,7 @@
     </header>
 
     <main>
-        <!-- TELA INICIAL: FORMULÁRIO INFORMATIVO -->
+       
         <div id="tela-inicial" style="display: block;">
             <form name="myForm" onsubmit="return iniciarTeste()" method="post">
                 <div>
@@ -85,11 +85,11 @@
                     </tbody>
                 </table>
                 <br>
-                <!-- Link Externo Obrigatório (Slide de HTML, Pág. 8) -->
+                
                 <a href="https://mensa.org.br" target="_blank">Clique aqui para conhecer a Mensa Brasil</a>
                 <br><br>
                 
-                <!-- Botão de envio com o ID para puxar o estilo verde do CSS -->
+               
                 <button type="submit" id="btnEnviar">Iniciar Avaliação (3 Questões)</button>
             </form>
         </div>
@@ -144,7 +144,7 @@
             </a>
 
             <br /><br /><br />
-            <!-- Link simples para ir para a página de histórico comum -->
+            
             <a href="historico.html" style="color: #007BFF; text-decoration: underline;">Ir para a Página de Histórico</a>
         </div>
     </main>
@@ -212,7 +212,7 @@
 
             var qiFinal = 70 + (acertos * 20); 
 
-            // Alerta simples com o resultado (Slide de JS, Pág. 17)
+            
             alert("Parabéns, " + nomeUsuario + "! Seu QI estimado é de: " + qiFinal);
 
             window.location.href = "historico.html?nome=" + encodeURIComponent(nomeUsuario) + "&qi=" + qiFinal;
