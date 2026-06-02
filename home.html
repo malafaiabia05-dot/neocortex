@@ -75,7 +75,7 @@
 
             <br><hr><br>
 
-            <!-- Dados Dinâmicos Preenchidos pelo JS (Slide de JS, Pág. 18) -->
+           
             <p><strong>Nome:</strong> <span id="perfil-nome">...</span></p>
             <p><strong>E-mail:</strong> <span id="perfil-email">...</span></p>
             
@@ -94,9 +94,9 @@
         </div>
     </main>
 
-    <!-- JAVASCRIPT BÁSICO (Estilo das Aulas) -->
+    
     <script>
-        // Variáveis globais para simular o banco de dados (Pág. 18)
+       
         var bancoNome = "Visitante";
         var bancoEmail = "exemplo@gmail.com";
         var bancoSenha = "123";
@@ -106,33 +106,33 @@
         let caixaMenu = document.querySelector(".menu");
         bntMenu.addEventListener("click", function() { caixaMenu.classList.toggle("visivel"); });
 
-        // Função 1: Mostra a tela de cadastro e esconde o login (Slide de Layouts)
+        
         function irParaCadastro() {
             document.getElementById("tela-login").style.display = "none";
             document.getElementById("tela-cadastro").style.display = "block";
         }
 
-        // Função 2: Salva os dados do cadastro e abre o perfil direto (Slide de JS, Pág. 21)
+        
         function salvarCadastro() {
             var nome = document.getElementById("cad-nome").value;
             var email = document.getElementById("cad-email").value;
             var senha = document.getElementById("cad-senha").value;
             var confirma = document.getElementById("cad-confirma").value;
 
-            // Validação simples de igualdade (Slide de JS, Pág. 25)
+           
             if (senha != confirma) {
                 alert("As senhas não coincidem! Tente novamente.");
                 return false;
             }
 
-            // Salva nas variáveis globais
+           
             bancoNome = nome;
             bancoEmail = email;
             bancoSenha = senha;
 
             alert("Cadastro realizado com sucesso! Bem-vindo(a).");
 
-            // Joga os dados direto na tela de perfil (Pág. 18)
+            
             document.getElementById("perfil-nome").innerHTML = bancoNome;
             document.getElementById("perfil-email").innerHTML = bancoEmail;
 
@@ -143,7 +143,7 @@
             return false; // Impede o recarregamento síncrono
         }
 
-        // Função 3: Realizar Login comum baseando-se nas variáveis
+       
         function realizarLogin() {
             var emailDigitado = document.getElementById("email-login").value;
             var senhaDigitada = document.getElementById("senha-login").value;
@@ -160,7 +160,7 @@
             return false;
         }
 
-        // Função 4: Mudar a imagem de perfil com base no seletor select (Básico)
+        
         function mudarFoto() {
             var linkFotoSelecionada = document.getElementById("seletor-foto").value;
             document.getElementById("foto-exibida").src = linkFotoSelecionada;
