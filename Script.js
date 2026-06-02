@@ -1,7 +1,7 @@
 // ==========================================
 // 1. CONTROLE DO MENU RESPONSIVO (GLOBAL)
 // ==========================================
-// Executa em todas as páginas que possuem o botão de menu
+// Roda em todas as páginas que possuem o botão de menu
 let botaoMenu = document.querySelector("#botaomenu");
 let menuCaixa = document.querySelector(".menu");
 
@@ -70,55 +70,58 @@ window.irParaCadastro = function() {
 };
 
 window.salvarCadastro = function() {
-    var nome = document.getElementById("cad-nome").value;
-    var email = document.getElementById("cad-email").value;
-    var senha = document.getElementById("cad-senha").value;
-    var confirma = document.getElementById("cad-confirma").value;
+    var cadNome = document.getElementById("cad-nome");
+    var cadEmail = document.getElementById("cad-email");
+    var cadSenha = document.getElementById("cad-senha");
+    var cadConfirma = document.getElementById("cad-confirma");
 
-    if (senha !== confirma) {
-        alert("As senhas não coincidem! Tente novamente.");
-        return false;
-    }
+    if (cadNome && cadEmail && cadSenha && cadConfirma) {
+        if (cadSenha.value !== cadConfirma.value) {
+            alert("As senhas não coincidem! Tente novamente.");
+            return false;
+        }
 
-    bancoNome = nome;
-    bancoEmail = email;
-    bancoSenha = senha;
+        bancoNome = cadNome.value;
+        bancoEmail = cadEmail.value;
+        bancoSenha = cadSenha.value;
 
-    alert("Cadastro realizado com sucesso! Bem-vindo(a).");
+        alert("Cadastro realizado com sucesso! Bem-vindo(a).");
 
-    var perfNome = document.getElementById("perfil-nome");
-    var perfEmail = document.getElementById("perfil-email");
-    if (perfNome) perfNome.innerHTML = bancoNome;
-    if (perfEmail) perfEmail.innerHTML = bancoEmail;
-
-    var telaCadastro = document.getElementById("tela-cadastro");
-    var telaPerfil = document.getElementById("tela-perfil");
-    if (telaCadastro && telaPerfil) {
-        telaCadastro.style.display = "none";
-        telaPerfil.style.display = "block";
-    }
-
-    return false;
-};
-
-window.realizarLogin = function() {
-    var emailDigitado = document.getElementById("email-login").value;
-    var senhaDigitada = document.getElementById("senha-login").value;
-
-    if (emailDigitado === bancoEmail && senhaDigitada === bancoSenha) {
         var perfNome = document.getElementById("perfil-nome");
         var perfEmail = document.getElementById("perfil-email");
         if (perfNome) perfNome.innerHTML = bancoNome;
         if (perfEmail) perfEmail.innerHTML = bancoEmail;
-        
-        var telaLogin = document.getElementById("tela-login");
+
+        var telaCadastro = document.getElementById("tela-cadastro");
         var telaPerfil = document.getElementById("tela-perfil");
-        if (telaLogin && telaPerfil) {
-            telaLogin.style.display = "none";
+        if (telaCadastro && telaPerfil) {
+            telaCadastro.style.display = "none";
             telaPerfil.style.display = "block";
         }
-    } else {
-        alert("E-mail ou senha incorretos!");
+    }
+    return false;
+};
+
+window.realizarLogin = function() {
+    var emailLogin = document.getElementById("email-login");
+    var senhaLogin = document.getElementById("senha-login");
+
+    if (emailLogin && senhaLogin) {
+        if (emailLogin.value === bancoEmail && senhaLogin.value === bancoSenha) {
+            var perfNome = document.getElementById("perfil-nome");
+            var perfEmail = document.getElementById("perfil-email");
+            if (perfNome) perfNome.innerHTML = bancoNome;
+            if (perfEmail) perfEmail.innerHTML = bancoEmail;
+            
+            var telaLogin = document.getElementById("tela-login");
+            var telaPerfil = document.getElementById("tela-perfil");
+            if (telaLogin && telaPerfil) {
+                telaLogin.style.display = "none";
+                telaPerfil.style.display = "block";
+            }
+        } else {
+            alert("E-mail ou senha incorretos!");
+        }
     }
     return false;
 };
@@ -226,28 +229,3 @@ if (perfNomeTela && perfEmailTela) {
         perfEmailTela.innerHTML = "não logado";
     }
 }
-    if (emailDigitado === bancoEmail && senhaDigitada === bancoSenha) {
-        var perfNome = document.getElementById("perfil-nome");
-        var perfEmail = document.getElementById("perfil-email");
-        if (perfNome) perfNome.innerHTML = bancoNome;
-        if (perfEmail) perfEmail.innerHTML = bancoEmail;
-        
-        var telaLogin = document.getElementById("tela-login");
-        var telaPerfil = document.getElementById("tela-perfil");
-        if (telaLogin && telaPerfil) {
-            telaLogin.style.display = "none";
-            telaPerfil.style.display = "block";
-        }
-    } else {
-        alert("E-mail ou senha incorretos!");
-    }
-    return false;
-};
-
-window.mudarFoto = function() {
-    var seletor = document.getElementById("seletor-foto");
-    var fotoExibida = document.getElementById("foto-exibida");
-    if (seletor && fotoExibida) {
-        fotoExibida.src = seletor.value;
-    }
-};
