@@ -64,7 +64,7 @@
             
             // Monta o texto de compartilhamento geral para o WhatsApp
             var textoMensagem = "Olá! Meu resultado no Teste NeoCórtex foi QI " + qi;
-            var linkWhats = "https://wa.me" + encodeURIComponent(textoMensagem);
+            var linkWhats = "https://wa.me/?text=" + encodeURIComponent(textoMensagem);
             
             if (btnZap) {
                 btnZap.href = linkWhats; 
