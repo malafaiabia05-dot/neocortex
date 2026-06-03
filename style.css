@@ -226,3 +226,26 @@ ul, ol {
 li {
     margin-bottom: 8px;
 }
+/* Garante que o menu comece escondido */
+.menu {
+    display: none;
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* ⚠️ ESSA REGRA É O QUE FAZ O JAVASCRIPT FUNCIONAR E MOSTRAR O MENU! */
+.menu.visivel {
+    display: block !important; 
+}
+
+/* Deixa a caixinha do histórico bonita e centralizada igual à foto */
+main {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
