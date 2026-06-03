@@ -57,13 +57,11 @@
         </table>
     </main>
     <!-- JAVASCRIPT EXCLUSIVO DA PÁGINA PERFIL -->
-    <script>
-        let botaoMenu = document.querySelector("#botaomenu"); let menuCaixa = document.querySelector(".menu");
-    botaoMenu.addEventListener("click", function() { menuCaixa.classList.toggle("visivel");
-    });
+           <script>
         // 1. PROGRAMAÇÃO DO MENU HAMBÚRGUER (Slide de CSS 1 e JS)
-        let bntMenu = document.querySelector("#botaomenu"); 
-        let caixaMenu = document.querySelector(".menu"); 
+        // Criamos as variáveis uma única vez para não dar conflito de escopo
+        var bntMenu = document.querySelector("#botaomenu"); 
+        var caixaMenu = document.querySelector(".menu"); 
         
         if (bntMenu && caixaMenu) {
             bntMenu.addEventListener("click", function() { 
@@ -76,7 +74,7 @@
         var nomeParam = urlParams.get('nome'); 
         var emailParam = urlParams.get('email'); 
 
-        // Captura as tags de exibição no HTML
+        // Captura as tags de exibição no HTML pelas variáveis
         var elementoNome = document.getElementById("perfil-nome");
         var elementoEmail = document.getElementById("perfil-email");
 
@@ -90,7 +88,7 @@
                 elementoEmail.innerHTML = "Não logado"; 
             } 
         }
-    </script>
+       </script>
 </body>
 </html>
 
