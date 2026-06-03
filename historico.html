@@ -39,7 +39,11 @@
             Compartilhe já seu QI!
         </a>
     </main>
-<script> // 1. Controle do menu hambúrguer
+<script> 
+    let botaoMenu = document.querySelector("#botaomenu"); let menuCaixa = document.querySelector(".menu");
+    botaoMenu.addEventListener("click", function() { menuCaixa.classList.toggle("visivel");
+    });
+    // 1. Controle do menu hambúrguer
     let botao = document.querySelector("#botaomenu"); let menuCaixa = document.querySelector(".menu");
     botao.addEventListener("click", function() { menuCaixa.classList.toggle("visivel"); });
     // 2. Lógica simples para pegar o QI vindo da página anterior (URL)
