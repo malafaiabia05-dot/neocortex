@@ -2,78 +2,77 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeoCórtex - Histórico</title>
+    <!-- Vínculo com o seu CSS externo único (Slide CSS 1, Pág. 6) -->
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
     <header>
+       
         <button id="botaomenu">☰ menu</button>
         <nav> 
-           <div class="menu">
+            <div class="menu">
                 <a href="index.html">home</a>
+                <a href="home.html">login</a>
                 <a href="perfil.html">perfil</a>
                 <a href="teste.html">teste seu QI</a>
                 <a href="historico.html">histórico</a>
-           </div> 
+            </div> 
         </nav>
     </header>
 
-    <main>
-        <script>
-        <h1>Histórico dos Testes de QI</h1>
-        <br>
-        <p>O conceito de Quociente de Inteligência (QI) foi criado no século XX para medir a capacidade de raciocínio lógico de uma pessoa.</p>
+    <main style="padding: 20px;">
+        <h2>Histórico de Avaliações</h2>
         
-        <!-- Mensagem dinâmica que mudará se a pessoa vier do teste -->
-        <p id="mensagem-resultado">Abaixo estão as faixas de classificação padrão utilizadas mundialmente:</p>
+       
+        <p id="mensagem-resultado">Nenhum teste recente encontrado no histórico.</p>
         
-        <ul>
-            <li><strong>Gênio:</strong> Acima de 130 pontos.</li>
-            <li><strong>Média Padrão:</strong> Entre 90 e 109 pontos.</li>
-            <li><strong>Baixo Rendimento:</strong> Abaixo de 70 pontos.</li>
-        </ul>
-
-        <br>
-        <!-- CORREÇÃO: O botão saiu de dentro do script e virou um link de compartilhamento -->
+        <br><br>
+        
+        <!-- Botão de compartilhamento geral (Começa invisível) -->
         <a id="botaocompartilhar" href="#" target="_blank" style="display: none; padding: 12px 20px; background-color: #25d366; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">
-            Compartilhe já seu QI!
+            🟢 Compartilhar Resultado no WhatsApp
         </a>
     </main>
-<script> 
-    // 1. Controle do menu hambúrguer (Slide de JS)
-    var botao = document.querySelector("#botaomenu");
-    var menuCaixa = document.querySelector(".menu");
-    
-    if (botao && menuCaixa) {
-        botao.addEventListener("click", function() { 
-            menuCaixa.classList.toggle("visivel"); 
-        });
-    }
 
-    // 2. Lógica simples para pegar o QI vindo da página anterior pela URL (Slide de JS)
-    var urlParams = new URLSearchParams(window.location.search);
-    var qi = urlParams.get('qi'); 
-    var nome = urlParams.get('nome');
+    <!-- JAVASCRIPT CORRIGIDO (Sintaxe pura das aulas da Monique) -->
+    <script>
+        // 1. CONTROLE DO MENU HAMBÚRGUER (Protegido contra travamentos)
+        var btnMenuHistorico = document.getElementById("botaomenu");
+        var caixaMenuHistorico = document.querySelector(".menu");
 
-    // 3. Se existir um resultado, exibe o botão do WhatsApp customizado (Slide de JS, Pág. 25)
-    if (qi) { 
-        // Verifica se o elemento de texto existe na página antes de injetar
-        if (document.getElementById("mensagem-resultado")) {
-            document.getElementById("mensagem-resultado").innerHTML = "<strong>" + nome + "</strong>, seu teste foi registrado com sucesso!"; 
+        if (btnMenuHistorico && caixaMenuHistorico) {
+            btnMenuHistorico.addEventListener("click", function() {
+                caixaMenuHistorico.classList.toggle("visivel");
+            });
         }
-        
-        // Monta a mensagem geral para compartilhar no WhatsApp (Sem número travado)
-        var textoMensagem = "Olá! Meu resultado no Teste NeoCórtex foi QI " + qi;
-        var linkWhats = "https://wa.me/?text=" + encodeURIComponent(textoMensagem);
-        
-        // Ativa o botão verde na tela se o elemento existir
-        var btnZap = document.getElementById("botaocompartilhar");
-        if (btnZap) {
-            btnZap.href = linkWhats; 
-            btnZap.style.display = "inline-block"; 
+
+        // 2. CAPTURA DOS PARÂMETROS DA URL VINDOS DO TESTE.HTML
+        var urlParams = new URLSearchParams(window.location.search);
+        var qi = urlParams.get('qi');
+        var nome = urlParams.get('nome');
+
+       
+        if (qi && nome) {
+            var elementoTexto = document.getElementById("mensagem-resultado");
+            var elementoBotao = document.getElementById("botaocompartilhar");
+
+            if (elementoTexto) {
+                elementoTexto.innerHTML = "Prezado(a) <strong>" + nome + "</strong>, o seu teste foi registrado! Seu resultado estimado é de <strong>QI " + qi + "</strong>.";
+            }
+
+            // Monta o link de compartilhamento geral sem número fixo (Requisito de envio de texto)
+            var textoMensagem = "Olá! Meu resultado no Teste NeoCórtex foi QI " + qi;
+            var linkWhats = "https://wa.me" + encodeURIComponent(textoMensagem);
+
+            if (elementoBotao) {
+                elementoBotao.href = linkWhats;
+                elementoBotao.style.display = "inline-block"; // Faz o botão verde aparecer
+            }
         }
-    } 
-</script>
+    </script>
 </body>
 </html>
+
