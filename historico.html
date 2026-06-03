@@ -4,39 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeoCórtex - Histórico</title>
-    <!-- Vínculo com o seu CSS externo único (Slide CSS 1, Pág. 6) -->
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
-    <header>
-       
-        <button id="botaomenu">☰ menu</button>
+    <header style="background-color: #ffffff; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+        <!-- Botão do menu idêntico ao ID do seu script -->
+        <button id="botaomenu" style="background: #333; color: white; padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer;">☰ menu</button>
         <nav> 
             <div class="menu">
-                <a href="index.html">home</a>
-                <a href="home.html">login</a>
-                <a href="perfil.html">perfil</a>
-                <a href="teste.html">teste seu QI</a>
-                <a href="historico.html">histórico</a>
+                <a href="index.html" style="display: block; margin: 5px 0; text-decoration: none; color: #333;">home</a>
+                <a href="home.html" style="display: block; margin: 5px 0; text-decoration: none; color: #333;">login</a>
+                <a href="perfil.html" style="display: block; margin: 5px 0; text-decoration: none; color: #333;">perfil</a>
+                <a href="teste.html" style="display: block; margin: 5px 0; text-decoration: none; color: #333;">teste seu QI</a>
+                <a href="historico.html" style="display: block; margin: 5px 0; text-decoration: none; color: #333;">histórico</a>
             </div> 
         </nav>
     </header>
 
-    <main style="padding: 20px;">
-        <h2>Histórico de Avaliações</h2>
+    <main>
+        <h2 style="margin-top: 0;">Histórico de Avaliações</h2>
         
-       
+        <!-- Mensagem de texto com o ID correto para o JavaScript preencher -->
         <p id="mensagem-resultado">Nenhum teste recente encontrado no histórico.</p>
         
-        <br><br>
+        <br>
         
-        <!-- Botão de compartilhamento geral (Começa invisível) -->
-        <a id="botaocompartilhar" href="#" target="_blank" style="display: none; padding: 12px 20px; background-color: #25d366; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">
-            🟢 Compartilhar Resultado no WhatsApp
+        <!-- 🟢 O BOTÃO DO WHATSAPP QUE ESTAVA FALTANDO NO SEU HTML! -->
+        <a id="botaocompartilhar" href="#" target="_blank" style="display: none; padding: 12px 20px; background-color: #25d366; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; text-align: center;">
+            Compartilhar Resultado no WhatsApp
         </a>
     </main>
 
+    <!-- JAVASCRIPT ORGANIZADO (Sem códigos duplicados e sem chaves soltas) -->
     <script> 
         // 1. Controle do menu hambúrguer padrão (Sintaxe da Monique)
         var botao = document.querySelector("#botaomenu");
