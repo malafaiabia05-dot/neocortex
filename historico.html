@@ -37,41 +37,25 @@
         </a>
     </main>
 
-    <!-- JAVASCRIPT CORRIGIDO (Sintaxe pura das aulas da Monique) -->
-    <script>
-        // 1. CONTROLE DO MENU HAMBÚRGUER (Protegido contra travamentos)
-        var btnMenuHistorico = document.getElementById("botaomenu");
-        var caixaMenuHistorico = document.querySelector(".menu");
-
-        if (btnMenuHistorico && caixaMenuHistorico) {
-            btnMenuHistorico.addEventListener("click", function() {
-                caixaMenuHistorico.classList.toggle("visivel");
-            });
-        }
-
-        // 2. CAPTURA DOS PARÂMETROS DA URL VINDOS DO TESTE.HTML
-        var urlParams = new URLSearchParams(window.location.search);
+    <script> 
+        let botaoMenu = document.querySelector("#botaomenu"); 
+        let menuCaixa = document.querySelector(".menu");
+        botaoMenu.addEventListener("click", function() { menuCaixa.classList.toggle("visivel");
+                                                       }); }); // 1. Controle do menu hambúrguer let botao = document.querySelector("#botaomenu");
+        let menuCaixa = document.querySelector(".menu");
+        botao.addEventListener("click", function() { menuCaixa.classList.toggle("visivel");
+                                                   });
+        // 2. Lógica simples para pegar o QI vindo da página anterior (URL) var urlParams = new URLSearchParams(window.location.search);
         var qi = urlParams.get('qi');
         var nome = urlParams.get('nome');
-
-       
-        if (qi && nome) {
-            var elementoTexto = document.getElementById("mensagem-resultado");
-            var elementoBotao = document.getElementById("botaocompartilhar");
-
-            if (elementoTexto) {
-                elementoTexto.innerHTML = "Prezado(a) <strong>" + nome + "</strong>, o seu teste foi registrado! Seu resultado estimado é de <strong>QI " + qi + "</strong>.";
-            }
-
-            // Monta o link de compartilhamento geral sem número fixo (Requisito de envio de texto)
-            var textoMensagem = "Olá! Meu resultado no Teste NeoCórtex foi QI " + qi;
-            var linkWhats = "https://wa.me" + encodeURIComponent(textoMensagem);
-
-            if (elementoBotao) {
-                elementoBotao.href = linkWhats;
-                elementoBotao.style.display = "inline-block"; // Faz o botão verde aparecer
-            }
-        }
+        // 3. Se existir um resultado, exibe o botão do WhatsApp customizado if (qi)
+        { document.getElementById("mensagem-resultado").innerHTML = "<strong>" + nome + "</strong>, seu teste foi registrado com sucesso!";
+         var textoMensagem = "Olá! Meu resultado no Teste NeoCórtex foi QI " + qi; 
+         var linkWhats = "https://wa.me/?text=" + encodeURIComponent(textoMensagem);
+         // Ativa o botão verde na tela 
+         var btnZap = document.getElementById("botaocompartilhar");
+         btnZap.href = linkWhats;
+         btnZap.style.display = "inline-block"; } 
     </script>
 </body>
 </html>
