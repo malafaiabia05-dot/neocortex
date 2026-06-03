@@ -44,8 +44,10 @@
     botaoMenu.addEventListener("click", function() { menuCaixa.classList.toggle("visivel");
     });
     // 1. Controle do menu hambúrguer
-    let botao = document.querySelector("#botaomenu"); let menuCaixa = document.querySelector(".menu");
-    botao.addEventListener("click", function() { menuCaixa.classList.toggle("visivel"); });
+    let botao = document.querySelector("#botaomenu");
+    let menuCaixa = document.querySelector(".menu");
+    botao.addEventListener("click", function() { menuCaixa.classList.toggle("visivel"); 
+    });
     // 2. Lógica simples para pegar o QI vindo da página anterior (URL)
     var urlParams = new URLSearchParams(window.location.search);
     var qi = urlParams.get('qi'); var nome = urlParams.get('nome');
