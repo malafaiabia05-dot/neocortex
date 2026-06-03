@@ -20,6 +20,7 @@
     </header>
 
     <main>
+        <script>
         <h1>Histórico dos Testes de QI</h1>
         <br>
         <p>O conceito de Quociente de Inteligência (QI) foi criado no século XX para medir a capacidade de raciocínio lógico de uma pessoa.</p>
@@ -40,23 +41,38 @@
         </a>
     </main>
 <script> 
-    let botaoMenu = document.querySelector("#botaomenu"); let menuCaixa = document.querySelector(".menu");
-    botaoMenu.addEventListener("click", function() { menuCaixa.classList.toggle("visivel");
-    });
-    // 1. Controle do menu hambúrguer
-    let botao = document.querySelector("#botaomenu");
-    let menuCaixa = document.querySelector(".menu");
-    botao.addEventListener("click", function() { menuCaixa.classList.toggle("visivel"); 
-    });
-    // 2. Lógica simples para pegar o QI vindo da página anterior (URL)
+    // 1. Controle do menu hambúrguer (Slide de JS)
+    var botao = document.querySelector("#botaomenu");
+    var menuCaixa = document.querySelector(".menu");
+    
+    if (botao && menuCaixa) {
+        botao.addEventListener("click", function() { 
+            menuCaixa.classList.toggle("visivel"); 
+        });
+    }
+
+    // 2. Lógica simples para pegar o QI vindo da página anterior pela URL (Slide de JS)
     var urlParams = new URLSearchParams(window.location.search);
-    var qi = urlParams.get('qi'); var nome = urlParams.get('nome');
-    // 3. Se existir um resultado, exibe o botão do WhatsApp customizado if (qi) 
-    { document.getElementById("mensagem-resultado").innerHTML = "<strong>" + nome + "</strong>, seu teste foi registrado com sucesso!"; 
-     var textoMensagem = "Olá! Meu resultado no Teste NeoCórtex foi QI " + qi;
-     var linkWhats = "https://wa.me/?text=" + encodeURIComponent(textoMensagem);
-     // Ativa o botão verde na tela var btnZap = document.getElementById("botaocompartilhar");
-     btnZap.href = linkWhats; btnZap.style.display = "inline-block"; 
+    var qi = urlParams.get('qi'); 
+    var nome = urlParams.get('nome');
+
+    // 3. Se existir um resultado, exibe o botão do WhatsApp customizado (Slide de JS, Pág. 25)
+    if (qi) { 
+        // Verifica se o elemento de texto existe na página antes de injetar
+        if (document.getElementById("mensagem-resultado")) {
+            document.getElementById("mensagem-resultado").innerHTML = "<strong>" + nome + "</strong>, seu teste foi registrado com sucesso!"; 
+        }
+        
+        // Monta a mensagem geral para compartilhar no WhatsApp (Sem número travado)
+        var textoMensagem = "Olá! Meu resultado no Teste NeoCórtex foi QI " + qi;
+        var linkWhats = "https://wa.me/?text=" + encodeURIComponent(textoMensagem);
+        
+        // Ativa o botão verde na tela se o elemento existir
+        var btnZap = document.getElementById("botaocompartilhar");
+        if (btnZap) {
+            btnZap.href = linkWhats; 
+            btnZap.style.display = "inline-block"; 
+        }
     } 
 </script>
 </body>
