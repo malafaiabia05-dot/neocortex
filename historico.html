@@ -38,24 +38,39 @@
     </main>
 
     <script> 
-        let botaoMenu = document.querySelector("#botaomenu"); 
-        let menuCaixa = document.querySelector(".menu");
-        botaoMenu.addEventListener("click", function() { menuCaixa.classList.toggle("visivel");
-                                                       }); }); // 1. Controle do menu hambúrguer let botao = document.querySelector("#botaomenu");
-        let menuCaixa = document.querySelector(".menu");
-        botao.addEventListener("click", function() { menuCaixa.classList.toggle("visivel");
-                                                   });
-        // 2. Lógica simples para pegar o QI vindo da página anterior (URL) var urlParams = new URLSearchParams(window.location.search);
+        // 1. Controle do menu hambúrguer padrão (Sintaxe da Monique)
+        var botao = document.querySelector("#botaomenu");
+        var menuCaixa = document.querySelector(".menu");
+        
+        if (botao && menuCaixa) {
+            botao.addEventListener("click", function() { 
+                menuCaixa.classList.toggle("visivel"); 
+            });
+        }
+
+        // 2. Lógica para pegar os parâmetros do teste vindo da barra de endereço
+        var urlParams = new URLSearchParams(window.location.search);
         var qi = urlParams.get('qi');
         var nome = urlParams.get('nome');
-        // 3. Se existir um resultado, exibe o botão do WhatsApp customizado if (qi)
-        { document.getElementById("mensagem-resultado").innerHTML = "<strong>" + nome + "</strong>, seu teste foi registrado com sucesso!";
-         var textoMensagem = "Olá! Meu resultado no Teste NeoCórtex foi QI " + qi; 
-         var linkWhats = "https://wa.me/?text=" + encodeURIComponent(textoMensagem);
-         // Ativa o botão verde na tela 
-         var btnZap = document.getElementById("botaocompartilhar");
-         btnZap.href = linkWhats;
-         btnZap.style.display = "inline-block"; } 
+
+        // 3. Se existir um resultado na URL, modifica a tela dinamicamente
+        if (qi && nome) { 
+            var campoTexto = document.getElementById("mensagem-resultado");
+            var btnZap = document.getElementById("botaocompartilhar");
+
+            if (campoTexto) {
+                campoTexto.innerHTML = "<strong>" + nome + "</strong>, seu teste foi registrado com sucesso! O seu resultado estimado é de <strong>QI " + qi + "</strong>."; 
+            }
+            
+            // Monta o texto de compartilhamento geral para o WhatsApp
+            var textoMensagem = "Olá! Meu resultado no Teste NeoCórtex foi QI " + qi;
+            var linkWhats = "https://wa.me" + encodeURIComponent(textoMensagem);
+            
+            if (btnZap) {
+                btnZap.href = linkWhats; 
+                btnZap.style.display = "inline-block"; // Faz o botão verde surgir magicamente na tela
+            }
+        } 
     </script>
 </body>
 </html>
