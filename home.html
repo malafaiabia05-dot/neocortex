@@ -93,45 +93,101 @@
             </table>
         </div>
     </main>
-    <script>
-    var bancoNome = "Visitante"; var bancoEmail = "exemplo@gmail.com"; var bancoSenha = "123"; 
-        // Menu Hambúrguer padrão let bntMenu = document.querySelector("#botaomenu"); 
-        let caixaMenu = document.querySelector(".menu");
-        bntMenu.addEventListener("click", function() { caixaMenu.classList.toggle("visivel"); 
-        });
-        function irParaCadastro() { document.getElementById("tela-login").style.display = "none"; 
-        document.getElementById("tela-cadastro").style.display = "block"; 
-        } function salvarCadastro() 
-        { var nome = document.getElementById("cad-nome").value; 
-        var email = document.getElementById("cad-email").value;
-        var senha = document.getElementById("cad-senha").value;
-        var confirma = document.getElementById("cad-confirma").value;
-        if (senha != confirma) { alert("As senhas não coincidem! Tente novamente."); 
-        return false; 
+   <script> 
+        // Variáveis globais de cadastro (Páginas 18 e 20 do slide de JS)
+        var bancoNome = "Visitante"; 
+        var bancoEmail = "exemplo@gmail.com"; 
+        var bancoSenha = "123"; 
+
+        // 1. PROGRAMAÇÃO DO MENU HAMBÚRGUER (Slide de CSS 1 e JS)
+        var bntMenu = document.querySelector("#botaomenu"); 
+        var caixaMenu = document.querySelector(".menu"); 
+        
+        if (bntMenu && caixaMenu) {
+            bntMenu.addEventListener("click", function() { 
+                caixaMenu.classList.toggle("visivel"); 
+            });
         }
-        bancoNome = nome; bancoEmail = email; 
-        bancoSenha = senha; alert("Cadastro realizado com sucesso! Bem-vindo(a).");
-        document.getElementById("perfil-nome").innerHTML = bancoNome; 
-        document.getElementById("perfil-email").innerHTML = bancoEmail;
-        // Transiciona para a tela de Perfil Logado
-        document.getElementById("tela-cadastro").style.display = "none"; 
-        document.getElementById("tela-perfil").style.display = "block";
-        return false;
-        // Impede o recarregamento síncrono
-        } function realizarLogin() { var emailDigitado = document.getElementById("email-login").value; 
-        var senhaDigitada = document.getElementById("senha-login").value;
-        if (emailDigitado == bancoEmail && senhaDigitada == bancoSenha) { document.getElementById("perfil-nome").innerHTML = bancoNome; 
-        document.getElementById("perfil-email").innerHTML = bancoEmail;
-        document.getElementById("tela-login").style.display = "none";
-    document.getElementById("tela-perfil").style.display = "block";
-    }
-    else { alert("E-mail ou senha incorretos!");
-    } 
-    return false;
-    }
-    function mudarFoto() { var linkFotoSelecionada = document.getElementById("seletor-foto").value;
-    document.getElementById("foto-exibida").src = linkFotoSelecionada;
-    } 
+
+        // 2. TRANSIÇÃO DE TELA: LOGIN PARA CADASTRO (Slide de Layouts)
+        function irParaCadastro() { 
+            if (document.getElementById("tela-login") && document.getElementById("tela-cadastro")) {
+                document.getElementById("tela-login").style.display = "none"; 
+                document.getElementById("tela-cadastro").style.display = "block"; 
+            }
+        } 
+
+        // 3. SALVAR OS DADOS DE CADASTRO (Slide de JS, Pág. 21 e 25)
+        function salvarCadastro() { 
+            var nome = document.getElementById("cad-nome").value; 
+            var email = document.getElementById("cad-email").value; 
+            var senha = document.getElementById("cad-senha").value; 
+            var confirma = document.getElementById("cad-confirma").value; 
+
+            // Validação simples de senha
+            if (senha != confirma) { 
+                alert("As senhas não coincidem! Tente novamente."); 
+                return false; 
+            } 
+
+            // Atualiza os dados simulados no banco de dados da página
+            bancoNome = nome; 
+            bancoEmail = email; 
+            bancoSenha = senha; 
+
+            alert("Cadastro realizado com sucesso! Bem-vindo(a)."); 
+            
+            // Injeta os dados cadastrados na tela de perfil (Slide de JS, Pág. 18)
+            if (document.getElementById("perfil-nome")) {
+                document.getElementById("perfil-nome").innerHTML = bancoNome; 
+            }
+            if (document.getElementById("perfil-email")) {
+                document.getElementById("perfil-email").innerHTML = bancoEmail; 
+            }
+
+            // Move as telas de layout
+            if (document.getElementById("tela-cadastro") && document.getElementById("tela-perfil")) {
+                document.getElementById("tela-cadastro").style.display = "none"; 
+                document.getElementById("tela-perfil").style.display = "block"; 
+            }
+            
+            return false; // Impede a página de recarregar (Stateless)
+        } 
+
+        // 4. SISTEMA DE LOGIN (Slide de JS, Pág. 21 e 25)
+        function realizarLogin() { 
+            var emailDigitado = document.getElementById("email-login").value; 
+            var senhaDigitada = document.getElementById("senha-login").value; 
+
+            // Validação de e-mail e senha comparando com as variáveis
+            if (emailDigitado == bancoEmail && senhaDigitada == bancoSenha) { 
+                if (document.getElementById("perfil-nome")) {
+                    document.getElementById("perfil-nome").innerHTML = bancoNome; 
+                }
+                if (document.getElementById("perfil-email")) {
+                    document.getElementById("perfil-email").innerHTML = bancoEmail; 
+                }
+                
+                if (document.getElementById("tela-login") && document.getElementById("tela-perfil")) {
+                    document.getElementById("tela-login").style.display = "none"; 
+                    document.getElementById("tela-perfil").style.display = "block"; 
+                }
+            } else { 
+                alert("E-mail ou senha incorretos!"); 
+            } 
+            
+            return false; // Evita a perda dos dados na tela devido ao protocolo HTTP
+        } 
+
+        // 5. TROCA DE FOTO DE PERFIL (Slide de Exercícios, Pág. 5)
+        function mudarFoto() { 
+            var seletor = document.getElementById("seletor-foto");
+            var foto = document.getElementById("foto-exibida");
+            
+            if (seletor && foto) {
+                foto.src = seletor.value; 
+            }
+        } 
     </script>
 </body>
 </html>
