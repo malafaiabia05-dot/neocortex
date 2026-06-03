@@ -56,18 +56,40 @@
             </tr>
         </table>
     </main>
-<script> 
-    // Menu hambúrguer padrão let bntMenu = document.querySelector("#botaomenu");
-    let caixaMenu = document.querySelector(".menu");
-    bntMenu.addEventListener("click", function() { caixaMenu.classList.toggle("visivel"); });
-    var urlParams = new URLSearchParams(window.location.search);
-    var nomeParam = urlParams.get('nome'); 
-    var emailParam = urlParams.get('email');
-    if (nomeParam && emailParam) { document.getElementById("perfil-nome").innerHTML = nomeParam; 
-    document.getElementById("perfil-email").innerHTML = emailParam; 
-    } else { document.getElementById("perfil-nome").innerHTML = "Visitante";
-    document.getElementById("perfil-email").innerHTML = "não logado"; 
-    }
-</script>
+    <!-- JAVASCRIPT EXCLUSIVO DA PÁGINA PERFIL -->
+    <script>
+        // 1. PROGRAMAÇÃO DO MENU HAMBÚRGUER (Slide de CSS 1 e JS)
+        let bntMenu = document.querySelector("#botaomenu"); 
+        let caixaMenu = document.querySelector(".menu"); 
+        
+        if (bntMenu && caixaMenu) {
+            bntMenu.addEventListener("click", function() { 
+                caixaMenu.classList.toggle("visivel"); 
+            });
+        }
+
+        // 2. CAPTURA DE PARÂMETROS DA URL (Transição de dados entre páginas)
+        var urlParams = new URLSearchParams(window.location.search); 
+        var nomeParam = urlParams.get('nome'); 
+        var emailParam = urlParams.get('email'); 
+
+        // Captura as tags de exibição no HTML
+        var elementoNome = document.getElementById("perfil-nome");
+        var elementoEmail = document.getElementById("perfil-email");
+
+        // Só executa a troca de texto se as tags existirem na página (Slide de JS, Pág. 18)
+        if (elementoNome && elementoEmail) {
+            if (nomeParam && emailParam) { 
+                elementoNome.innerHTML = nomeParam; 
+                elementoEmail.innerHTML = emailParam; 
+            } else { 
+                elementoNome.innerHTML = "Visitante"; 
+                elementoEmail.innerHTML = "Não logado"; 
+            } 
+        }
+    </script>
+</body>
+</html>
+
 </body>
 </html>
